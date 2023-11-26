@@ -1,12 +1,12 @@
 <script setup>
 
-    const props = defineProps(['cadastrarTarefa', 'tarefaTemp', 'trocarFiltro', 'editaTarefaTemp'])
+    const props = defineProps(['cadastraTarefa', 'tarefaTemp', 'trocarFiltro', 'editaTarefaTemp'])
 
 </script>
 
 
 <template>
-    <form @submit.prevent="props.cadastrarTarefa">
+    <form @submit.prevent="props.cadastraTarefa">
         <div class="row">
             <div class="col">
                 <input :value="props.tarefaTemp" @change="props.editaTarefaTemp" required

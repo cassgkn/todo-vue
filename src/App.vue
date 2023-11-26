@@ -1,7 +1,7 @@
 <script setup>
   import { reactive } from 'vue';
-  import  Cabecario from './components/Cabecario.vue'
-  import  Formulario  from './components/Formulario.vue';
+  import Cabecario from './components/Cabecario.vue'
+  import Formulario  from './components/Formulario.vue';
   import ListaDeTarefas from './components/ListaDeTarefas.vue';
 
 
@@ -10,17 +10,9 @@
     tarefaTemp: '',
     tarefas: [
       {
-        titulo: 'Estudar ES6',
+        titulo: '',
         finalizada: false,
       },
-      {
-        titulo: 'Estudar SASS',
-        finalizada: false,
-      },
-      {
-        titulo: 'Ir para a academia',
-        finalizada: true,
-      }
     ]
   })
 
@@ -44,7 +36,7 @@
         return estado.tarefas;
     }
   }
-  const cadastrarTarefa = () => {
+  const cadastraTarefa = () => {
     const tarefaNova = {
       titulo: estado.tarefaTemp,
       finalizada: false,
@@ -57,7 +49,7 @@
 <template>
   <div class="container">
     <Cabecario :tarefas-pendentes="getTarefasPendentes().length" />
-    <Formulario :trocar-filtro="evento => estado.filtro = evento.target.value" :tarefa-temp="estado.tarefaTemp" :edita-tarefa-temp="evento => estado.tarefaTemp = evento.target.value" :cadastrar-tarefa="cadastrarTarefa()" />
+    <Formulario :trocar-filtro="evento => estado.filtro = evento.target.value" :tarefa-temp="estado.tarefaTemp" :edita-tarefa-temp="evento => estado.tarefaTemp = evento.target.value" :cadastra-tarefa="cadastraTarefa" />
     <ListaDeTarefas :tarefas="getTarefasFiltradas()" /> 
   </div>
 </template>
